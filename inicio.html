@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kylie Cosmetics - Inicio</title>
+
+  <style>
+    :root {
+      --rosa: #ff66b2;
+      --negro: #000;
+      --blanco: #fff;
+      --gris: #ccc;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: var(--negro);
+      color: var(--blanco);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: var(--negro);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      border-bottom: 2px solid var(--rosa);
+      flex-wrap: wrap;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    nav {
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    nav a {
+      color: var(--blanco);
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--rosa);
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px;
+      background: linear-gradient(to bottom, #111, #000);
+      flex-wrap: wrap;
+    }
+
+    .texto {
+      width: 45%;
+      min-width: 280px;
+    }
+
+    .texto h2 {
+      color: var(--rosa);
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .texto h3 {
+      font-size: 40px;
+      margin: 10px 0;
+      text-transform: uppercase;
+    }
+
+    .texto p {
+      color: var(--gris);
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    .botones {
+      margin-top: 25px;
+    }
+
+    .botones button {
+      background-color: var(--rosa);
+      border: none;
+      color: var(--blanco);
+      padding: 12px 20px;
+      margin-right: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .botones button:hover {
+      background-color: #ff3399;
+    }
+
+    .imagen {
+      width: 45%;
+      text-align: center;
+      position: relative;
+    }
+
+    .imagen img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(255, 102, 178, 0.4);
+    }
+
+    section {
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    #cosmeticos, #fragancia, #imagenes {
+      background-color: #111;
+      margin-top: 20px;
+      border-top: 2px solid var(--rosa);
+    }
+
+    #imagenes img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin: 15px;
+      box-shadow: 0 0 15px rgba(255,102,178,0.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      color: var(--gris);
+      font-size: 14px;
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .texto, .imagen {
+        width: 100%;
+      }
+      .texto h3 {
+        font-size: 30px;
+      }
+    }
+
+    #btnMusica {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--rosa);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(255,102,178,0.6);
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    #btnMusica:hover {
+      background: #ff3399;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="img/ky.jpg" alt="Logo Kylie Cosmetics">
+    <nav>
+      <a href="#cosmeticos">Cosméticos</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="biografia.html">Biografía</a>
+      <a href="ubicacion.html">Ubicación</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="texto">
+      <h2>Recién lanzado</h2>
+      <h3>King Kylie Collection</h3>
+      <p>
+        Icónica, nostálgica y audaz. Conocé la colección de edición limitada
+        que celebra 10 años de Kylie Cosmetics. Tonos intensos, fórmulas suaves
+        y un estilo inconfundible.
+      </p>
+      <div class="botones">
+        <button onclick="window.location.href='index.html'">Ver Colección</button>
+      </div>
+    </div>
+
+    <div class="imagen">
+      <img src="img/ky.jpg" alt="Modelo Kylie Cosmetics">
+    </div>
+  </section>
+
+  <section id="cosmeticos">
+    <h2>💄 Cosméticos</h2>
+    <p>Explorá nuestros labiales, bases y sombras más icónicos de Kylie Cosmetics.</p>
+  </section>
+
+  <section id="fragancia">
+    <h2>🌸 Fragancia</h2>
+    <img src="img/perfume.jpg" alt="Producto 1" width="250">
+    <img src="img/body.jpg" alt="Producto 2" width="250">
+    <p>Perfumes elegantes y frescos con el estilo único de Kylie.</p>
+  </section>
+  <section id="imagenes">
+    <h2>📸 Imágenes</h2>
+    <img src="img/labial.jpg" alt="Producto 1">
+    <img src="img/rimel.jpg" alt="Producto 2">
+    <img src="img/base.jpg" alt="Producto 3">
+  </section>
+
+  <footer>
+    © 2025 Kylie Cosmetics — Página creada con HTML5 y CSS3
+  </footer>
+
+  <audio id="musicaFondo" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <button id="btnMusica" onclick="toggleMusica()">🎵 Música ON/OFF</button>
+
+  <script>
+  const musica = document.getElementById('musicaFondo');
+
+  function toggleMusica() {
+    if (musica.paused) {
+      musica.play().catch(() => {
+        alert("Hacé clic en cualquier parte de la página para activar el sonido 🎧");
+      });
+    } else {
+      musica.pause();
+    }
+  }
+
+  document.addEventListener('click', () => {
+    if (musica.paused) musica.play().catch(() => {});
+  });
+  </script>
+
+</body>
+</html>
