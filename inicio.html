@@ -1,263 +1,324 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kylie Cosmetics - Inicio</title>
+  <title>Kylie Cosmetics - Facturación</title>
 
   <style>
     :root {
       --rosa: #ff66b2;
+      --rosa-claro: #cf7fa8;
       --negro: #000;
-      --blanco: #fff;
-      --gris: #ccc;
+      --blanco: #ffffff;
+      --gris: #dbd5d5;
+      --gris-texto: #eee0e0;
     }
 
     body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(to bottom, #570431, #2c0119);
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: var(--negro);
-      color: var(--blanco);
-      scroll-behavior: smooth;
+      padding: 20px;
+      color: var(--negro);
     }
 
     header {
-      background-color: var(--negro);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 40px;
-      border-bottom: 2px solid var(--rosa);
-      flex-wrap: wrap;
+      text-align: center;
+      border-bottom: 3px solid var(--rosa);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
     }
 
-    header img {
-      height: 60px;
+    header h1 {
+      color: var(--rosa);
+      letter-spacing: 1px;
     }
 
-    nav {
-      flex-grow: 1;
+    .container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: var(--blanco);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    h2 {
+      color: var(--rosa);
+      margin-bottom: 10px;
+      border-bottom: 2px solid var(--rosa-claro);
+      padding-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 15px;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
       text-align: center;
     }
 
-    nav a {
-      color: var(--blanco);
-      text-decoration: none;
-      margin: 0 20px;
-      font-weight: bold;
-      font-size: 16px;
-      transition: color 0.3s ease;
+    th {
+      background-color: var(--rosa-claro);
+      color: var(--negro);
     }
 
-    nav a:hover {
-      color: var(--rosa);
+    tr:hover {
+      background-color: var(--gris);
     }
 
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 50px;
-      background: linear-gradient(to bottom, #111, #000);
-      flex-wrap: wrap;
-    }
-
-    .texto {
-      width: 45%;
-      min-width: 280px;
-    }
-
-    .texto h2 {
-      color: var(--rosa);
-      font-size: 18px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .texto h3 {
-      font-size: 40px;
-      margin: 10px 0;
-      text-transform: uppercase;
-    }
-
-    .texto p {
-      color: var(--gris);
-      max-width: 500px;
-      line-height: 1.6;
-    }
-
-    .botones {
-      margin-top: 25px;
-    }
-
-    .botones button {
+    .btn {
       background-color: var(--rosa);
-      border: none;
       color: var(--blanco);
-      padding: 12px 20px;
-      margin-right: 10px;
-      border-radius: 5px;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 14px;
       cursor: pointer;
       font-weight: bold;
       transition: 0.3s;
     }
 
-    .botones button:hover {
+    .btn:hover {
       background-color: #ff3399;
     }
 
-    .imagen {
-      width: 45%;
-      text-align: center;
-      position: relative;
-    }
-
-    .imagen img {
+    input, select {
       width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 25px rgba(255, 102, 178, 0.4);
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 8px;
     }
 
-    section {
-      padding: 60px 40px;
-      text-align: center;
+    .factura {
+      margin-top: 15px;
+      background-color: var(--gris);
+      padding: 15px;
+      border-radius: 8px;
     }
 
-    #cosmeticos, #fragancia, #imagenes {
-      background-color: #111;
-      margin-top: 20px;
-      border-top: 2px solid var(--rosa);
-    }
-
-    #imagenes img {
-      width: 250px;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin: 15px;
-      box-shadow: 0 0 15px rgba(255,102,178,0.3);
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #111;
-      color: var(--gris);
-      font-size: 14px;
-      border-top: 1px solid #222;
-    }
-
-    @media (max-width: 800px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-      .texto, .imagen {
-        width: 100%;
-      }
-      .texto h3 {
-        font-size: 30px;
-      }
-    }
-
-    #btnMusica {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--rosa);
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 30px;
-      cursor: pointer;
+    .total {
+      text-align: right;
       font-weight: bold;
-      box-shadow: 0 0 10px rgba(255,102,178,0.6);
-      transition: transform 0.2s, background 0.3s;
+      color: var(--rosa);
+      margin-top: 10px;
     }
 
-    #btnMusica:hover {
-      background: #ff3399;
-      transform: scale(1.05);
+    .producto-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      th, td {
+        font-size: 14px;
+      }
+    }
+
+    /* Música */
+    audio {
+      display: block;
+      margin: 10px auto 20px;
+      width: 60%;
+      border-radius: 12px;
+    }
+
+    /* Botón oculto en impresión */
+    @media print {
+      button, .btn, form, header, table#tablaProductos, aside h3 {
+        display: none !important;
+      }
+      .factura {
+        background: white !important;
+        box-shadow: none !important;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="img/ky.jpg" alt="Logo Kylie Cosmetics">
-    <nav>
-      <a href="#cosmeticos">Cosméticos</a>
-      <a href="contacto.html">Contacto</a>
-      <a href="biografia.html">Biografía</a>
-      <a href="ubicacion.html">Ubicación</a>
-    </nav>
+    <h1>Kylie Cosmetics 💄</h1>
+    <p>Catálogo, registro y facturación completa</p>
   </header>
 
-  <section class="hero" id="inicio">
-    <div class="texto">
-      <h2>Recién lanzado</h2>
-      <h3>King Kylie Collection</h3>
-      <p>
-        Icónica, nostálgica y audaz. Conocé la colección de edición limitada
-        que celebra 10 años de Kylie Cosmetics. Tonos intensos, fórmulas suaves
-        y un estilo inconfundible.
-      </p>
-      <div class="botones">
-        <button onclick="window.location.href='index.html'">Ver Colección</button>
-      </div>
-    </div>
+  <div class="container">
+    <main class="card">
+      <h2>🛍️ Catálogo de Productos</h2>
+      <a href="inicio.html" class="btn ghost" style="margin-bottom:10px;display:inline-block">← Volver al inicio</a>
+      <table id="tablaProductos">
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Producto</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Añadir</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </main>
 
-    <div class="imagen">
-      <img src="img/ky.jpg" alt="Modelo Kylie Cosmetics">
-    </div>
-  </section>
+    <aside class="card">
+      <h2>Registro del cliente </h2>
+      <div id="carrito"></div>
 
-  <section id="cosmeticos">
-    <h2>💄 Cosméticos</h2>
-    <p>Explorá nuestros labiales, bases y sombras más icónicos de Kylie Cosmetics.</p>
-  </section>
+      <h3 style="color:var(--rosa);margin-top:15px;">🧾 Facturación</h3>
+      <form id="formularioCliente">
+        <input type="text" id="nombre" placeholder="Nombre del cliente">
+        <input type="text" id="dni" placeholder="DNI">
+        <select id="pago">
+          <option value="">Forma de pago</option>
+          <option value="Efectivo">Efectivo</option>
+          <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+          <option value="Tarjeta de débito">Tarjeta de débito</option>
+          <option value="Transferencia">Transferencia</option>
+        </select>
+        <button type="button" class="btn" onclick="generarFactura()">Generar Factura</button>
+      </form>
 
-  <section id="fragancia">
-    <h2>🌸 Fragancia</h2>
-    <img src="img/perfume.jpg" alt="Producto 1" width="250">
-    <img src="img/body.jpg" alt="Producto 2" width="250">
-    <p>Perfumes elegantes y frescos con el estilo único de Kylie.</p>
-  </section>
-  <section id="imagenes">
-    <h2>📸 Imágenes</h2>
-    <img src="img/labial.jpg" alt="Producto 1">
-    <img src="img/rimel.jpg" alt="Producto 2">
-    <img src="img/base.jpg" alt="Producto 3">
-  </section>
-
-  <footer>
-    © 2025 Kylie Cosmetics — Página creada con HTML5 y CSS3
-  </footer>
-
-  <audio id="musicaFondo" loop>
-    <source src="musica.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio.
-  </audio>
-
-  <button id="btnMusica" onclick="toggleMusica()">🎵 Música ON/OFF</button>
+      <div class="factura" id="factura"></div>
+    </aside>
+  </div>
 
   <script>
-  const musica = document.getElementById('musicaFondo');
+    const productos = [
+      { id: "P001", nombre: "Labial Mate Rosé", categoria: "Labios", precio: 1500, stock: 10, img: "img/labial.jpg" },
+      { id: "P002", nombre: "Base Líquida Beige", categoria: "Rostro", precio: 2800, stock: 10, img: "img/base.jpg" },
+      { id: "P003", nombre: "Sombras Glitter", categoria: "Ojos", precio: 3200, stock: 10, img: "img/sombra.jpg" },
+      { id: "P004", nombre: "Rubor en Crema", categoria: "Rostro", precio: 1900, stock: 10, img: "img/rubor.jpg" },
+      { id: "P005", nombre: "Iluminador Glow", categoria: "Rostro", precio: 2100, stock: 10, img: "img/iluminador.jpg" },
+      { id: "P006", nombre: "Perfume Floral 50ml", categoria: "Fragancia", precio: 5600, stock: 10, img: "img/perfume.jpg" },
+      { id: "P007", nombre: "Crema Hidratante", categoria: "Piel", precio: 2400, stock: 10, img: "img/cremus.jpg" },
+      { id: "P008", nombre: "Gloss Transparente", categoria: "Labios", precio: 1200, stock: 10, img: "img/gloss.jpg" },
+      { id: "P009", nombre: "Bruma", categoria: "Cabello", precio: 1800, stock: 10, img: "img/bruma.jpg" },
+      { id: "P010", nombre: "Brochas", categoria: "Ojos", precio: 2500, stock: 10, img: "img/brochus.jpg" },
+      { id: "P011", nombre: "Mantequilla Hidratante", categoria: "Rostro", precio: 3100, stock: 10, img: "img/mantequilla.jpg" }
+    ];
 
-  function toggleMusica() {
-    if (musica.paused) {
-      musica.play().catch(() => {
-        alert("Hacé clic en cualquier parte de la página para activar el sonido 🎧");
-      });
-    } else {
-      musica.pause();
+    const tbody = document.querySelector("#tablaProductos tbody");
+    const carritoDiv = document.getElementById("carrito");
+    const facturaDiv = document.getElementById("factura");
+    let carrito = [];
+
+    function mostrarProductos() {
+      tbody.innerHTML = "";
+      for (let p of productos) {
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+          <td><img src="${p.img}" alt="${p.nombre}" class="producto-img"></td>
+          <td>${p.nombre}</td>
+          <td>${p.categoria}</td>
+          <td>$${p.precio}</td>
+          <td id="stock-${p.id}">${p.stock}</td>
+          <td><button class="btn" onclick="agregarCarrito('${p.id}')">Añadir</button></td>
+        `;
+        tbody.appendChild(fila);
+      }
     }
-  }
 
-  document.addEventListener('click', () => {
-    if (musica.paused) musica.play().catch(() => {});
-  });
+    function agregarCarrito(id) {
+      const producto = productos.find(p => p.id === id);
+      if (producto && producto.stock > 0) {
+        producto.stock--;
+        const existe = carrito.find(item => item.id === id);
+        if (existe) existe.cantidad++;
+        else carrito.push({ ...producto, cantidad: 1 });
+      }
+      mostrarProductos();
+      mostrarCarrito();
+    }
+
+    function mostrarCarrito() {
+      carritoDiv.innerHTML = "";
+      if (carrito.length === 0) {
+        carritoDiv.innerHTML = "<p>El carrito está vacío.</p>";
+        return;
+      }
+
+      let tabla = "<table><tr><th>Producto</th><th>Cant.</th><th>Subtotal</th></tr>";
+      let total = 0;
+      for (let item of carrito) {
+        const subtotal = item.precio * item.cantidad;
+        total += subtotal;
+        tabla += `<tr><td>${item.nombre}</td><td>${item.cantidad}</td><td>$${subtotal}</td></tr>`;
+      }
+      tabla += "</table>";
+      tabla += `<p class='total'>Total: $${total}</p>`;
+      carritoDiv.innerHTML = tabla;
+    }
+
+    function generarFactura() {
+      if (carrito.length === 0) {
+        alert("Agregá productos al carrito primero 💋");
+        return;
+      }
+
+      const nombre = document.getElementById("nombre").value;
+      const dni = document.getElementById("dni").value;
+      const pago = document.getElementById("pago").value;
+
+      if (!nombre || !dni || !pago) {
+        alert("Completá todos los datos del cliente, amor 💗");
+        return;
+      }
+
+      let detalle = "<table><tr><th>Producto</th><th>Cant.</th><th>Subtotal</th></tr>";
+      let total = 0;
+      for (let item of carrito) {
+        const subtotal = item.precio * item.cantidad;
+        total += subtotal;
+        detalle += `<tr><td>${item.nombre}</td><td>${item.cantidad}</td><td>$${subtotal}</td></tr>`;
+      }
+      detalle += "</table>";
+
+      facturaDiv.innerHTML = `
+        <h3 style="color:var(--rosa)">Factura Generada</h3>
+        <p><b>Cliente:</b> ${nombre}</p>
+        <p><b>DNI:</b> ${dni}</p>
+        <p><b>Pago:</b> ${pago}</p>
+        ${detalle}
+        <p class="total">TOTAL FINAL: $${total}</p>
+        <button class="btn" onclick="imprimirFactura()">🖨️ Imprimir Factura</button>
+      `;
+
+      carrito = [];
+      mostrarCarrito();
+    }
+
+    function imprimirFactura() {
+      const contenido = document.getElementById("factura").innerHTML;
+      const ventana = window.open("", "PRINT", "height=600,width=800");
+      ventana.document.write("<html><head><title>Factura - Kylie Cosmetics</title>");
+      ventana.document.write("<style>body{font-family:Arial;padding:20px;}h3{color:#ff66b2;}table{width:100%;border-collapse:collapse;}th,td{border:1px solid #ccc;padding:8px;text-align:center;}th{background:#f8d5e0;}p.total{text-align:right;font-weight:bold;color:#ff66b2;}</style>");
+      ventana.document.write("</head><body>");
+      ventana.document.write("<h2>Julieta Cosmetics 💄</h2>");
+      ventana.document.write(contenido);
+      ventana.document.write("</body></html>");
+      ventana.document.close();
+      ventana.print();
+    }
+
+    mostrarProductos();
   </script>
-
 </body>
 </html>
