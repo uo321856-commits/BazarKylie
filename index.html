@@ -3,295 +3,324 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kylie Cosmetics - Facturación</title>
+  <title>Kylie Cosmetics - Inicio</title>
 
   <style>
     :root {
       --rosa: #ff66b2;
-      --rosa-claro: #cf7fa8;
       --negro: #000;
-      --blanco: #ffffff;
-      --gris: #dbd5d5;
-      --gris-texto: #eee0e0;
+      --blanco: #fff;
+      --gris: #ccc;
     }
 
     body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(to bottom, #570431, #2c0119);
       margin: 0;
-      padding: 20px;
-      color: var(--negro);
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: var(--negro);
+      color: var(--blanco);
+      scroll-behavior: smooth;
     }
 
     header {
-      text-align: center;
-      border-bottom: 3px solid var(--rosa);
-      padding-bottom: 10px;
-      margin-bottom: 20px;
+      background-color: var(--negro);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      border-bottom: 2px solid var(--rosa);
+      flex-wrap: wrap;
     }
 
-    header h1 {
-      color: var(--rosa);
-      letter-spacing: 1px;
+    header img {
+      height: 60px;
     }
 
-    .container {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .card {
-      background: var(--blanco);
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-    }
-
-    h2 {
-      color: var(--rosa);
-      margin-bottom: 10px;
-      border-bottom: 2px solid var(--rosa-claro);
-      padding-bottom: 5px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 15px;
-    }
-
-    th, td {
-      padding: 10px;
-      border-bottom: 1px solid #ddd;
+    nav {
+      flex-grow: 1;
       text-align: center;
     }
 
-    th {
-      background-color: var(--rosa-claro);
-      color: var(--negro);
-    }
-
-    tr:hover {
-      background-color: var(--gris);
-    }
-
-    .btn {
-      background-color: var(--rosa);
+    nav a {
       color: var(--blanco);
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--rosa);
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px;
+      background: linear-gradient(to bottom, #111, #000);
+      flex-wrap: wrap;
+    }
+
+    .texto {
+      width: 45%;
+      min-width: 280px;
+    }
+
+    .texto h2 {
+      color: var(--rosa);
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .texto h3 {
+      font-size: 40px;
+      margin: 10px 0;
+      text-transform: uppercase;
+    }
+
+    .texto p {
+      color: var(--gris);
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    .botones {
+      margin-top: 25px;
+    }
+
+    .botones button {
+      background-color: var(--rosa);
       border: none;
-      border-radius: 6px;
-      padding: 8px 14px;
+      color: var(--blanco);
+      padding: 12px 20px;
+      margin-right: 10px;
+      border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
       transition: 0.3s;
     }
 
-    .btn:hover {
+    .botones button:hover {
       background-color: #ff3399;
     }
 
-    input, select {
+    .imagen {
+      width: 45%;
+      text-align: center;
+      position: relative;
+    }
+
+    .imagen img {
       width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      margin-bottom: 8px;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(255, 102, 178, 0.4);
     }
 
-    .factura {
-      margin-top: 15px;
-      background-color: var(--gris);
-      padding: 15px;
-      border-radius: 8px;
+    section {
+      padding: 60px 40px;
+      text-align: center;
     }
 
-    .total {
-      text-align: right;
-      font-weight: bold;
-      color: var(--rosa);
-      margin-top: 10px;
+    #cosmeticos {
+      background-color: #111;
+      margin-top: 20px;
+      border-top: 2px solid var(--rosa);
     }
 
-    .producto-img {
-      width: 60px;
-      height: 60px;
-      border-radius: 8px;
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .galeria img {
+      width: 250px;
+      height: 250px;
       object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255,102,178,0.3);
+      transition: transform 0.3s;
     }
 
-    @media (max-width: 900px) {
-      .container {
-        grid-template-columns: 1fr;
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      color: var(--gris);
+      font-size: 14px;
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
       }
-      th, td {
-        font-size: 14px;
+      .texto, .imagen {
+        width: 100%;
+      }
+      .texto h3 {
+        font-size: 30px;
       }
     }
 
-    /* Música */
-    audio {
-      display: block;
-      margin: 10px auto 20px;
-      width: 60%;
-      border-radius: 12px;
-    }
+  /* ANIMACIÓN DE LATIDO */
+@keyframes latido {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.12); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+/* ANIMACIÓN DE BRILLO */
+@keyframes glow {
+  0% { box-shadow: 0 0 15px rgba(255, 102, 178, 0.6); }
+  50% { box-shadow: 0 0 30px rgba(255, 51, 153, 0.9); }
+  100% { box-shadow: 0 0 15px rgba(255, 102, 178, 0.6); }
+}
+
+#btnMusica {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  background: linear-gradient(135deg, #ff88cc, #ff66b2);
+  color: white;
+  border: none;
+  border-radius: 30px;
+
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  animation: latido 2s infinite ease-in-out, glow 2.5s infinite ease-in-out;
+  transition: all 0.3s ease;
+}
+
+#btnMusica:hover {
+  background: linear-gradient(135deg, #ff66b2, #ff3399);
+  transform: translateX(-50%) scale(1.15);
+}
+
+
+#btnMusicaAlumno:hover {
+  background-color: rgba(145, 112, 79, 0.9);
+}
+
+#btnMusica {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 6px 12px;
+    font-size: 0.9em;
+    border-radius: 8px;
+    border: none;
+    background-color: rgba(181, 140, 99, 0.85);
+    color: white;
+    cursor: pointer;
+}
+
+#btnMusica:hover {
+    background-color: rgba(145, 112, 79, 0.9);
+}
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Kylie Cosmetics 💄</h1>
-    <p>Catálogo, registro y facturación completa</p>
+    <img src="img/ky.jpg" alt="Logo Kylie Cosmetics">
+    <nav>
+      <a href="#cosmeticos">Cosméticos</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="biografia.html">Biografía</a>
+      <a href="ubicacion.html">Ubicación</a>
+    </nav>
   </header>
 
-  <div class="container">
-    <main class="card">
-      <h2>🛍️ Catálogo de Productos</h2>
-       <a href="inicio.html" class="btn ghost" style="margin-bottom:10px;display:inline-block">← Volver al inicio</a>
-      <table id="tablaProductos">
-        <thead>
-          <tr>
-            <th>Imagen</th>
-            <th>Producto</th>
-            <th>Categoría</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Añadir</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </main>
+  <section class="hero" id="inicio">
+    <div class="texto">
+      <h2>Recién lanzado</h2>
+      <h3>King Kylie Collection</h3>
+      <p>
+        Icónica, nostálgica y audaz. Conocé la colección de edición limitada
+        que celebra 10 años de Kylie Cosmetics. Tonos intensos, fórmulas suaves
+        y un estilo inconfundible.
+      </p>
+      <div class="botones">
+        <button onclick="window.location.href='index.html'">Ver Colección</button>
+      </div>
+    </div>
 
-    <aside class="card">
-      <h2>🧾 Facturación</h2>
-      <div id="carrito"></div>
+    <div class="imagen">
+      <img src="img/ky.jpg" alt="Modelo Kylie Cosmetics">
+    </div>
+  </section>
 
-      <h3 style="color:var(--rosa);margin-top:15px;">Registro del Cliente</h3>
-      <form id="formularioCliente">
-        <input type="text" id="nombre" placeholder="Nombre del cliente">
-        <input type="text" id="dni" placeholder="DNI">
-        <select id="pago">
-          <option value="">Forma de pago</option>
-          <option value="Efectivo">Efectivo</option>
-          <option value="Tarjeta de crédito">Tarjeta de crédito</option>
-          <option value="Tarjeta de débito">Tarjeta de débito</option>
-          <option value="Transferencia">Transferencia</option>
-        </select>
-        <button type="button" class="btn" onclick="generarFactura()">Generar Factura</button>
-      </form>
+  <section id="cosmeticos">
+    <h2>💄 Cosméticos</h2>
+    <p>Explorá algunos de nuestros productos más icónicos: Labiales, Bases, Sombras y Fragancias exclusivas de Kylie Cosmetics.</p>
 
-      <div class="factura" id="factura"></div>
-    </aside>
-  </div>
+    <div class="galeria">
+      <img src="img/labial.jpg" alt="Labial Kylie">
+      <img src="img/rimel.jpg" alt="Rímel Kylie">
+      <img src="img/base.jpg" alt="Base Kylie">
+      <img src="img/perfume.jpg" alt="Perfume Kylie">
+      <img src="img/body.jpg" alt="Body Mist Kylie">
+    </div>
+  </section>
 
-  <script>
-    const productos = [
-      { id: "P001", nombre: "Labial Mate Rosé", categoria: "Labios", precio: 1500, stock: 10, img: "img/labial.jpg" },
-      { id: "P002", nombre: "Base Líquida Beige", categoria: "Rostro", precio: 2800, stock: 10, img: "img/base.jpg" },
-      { id: "P003", nombre: "Sombras Glitter", categoria: "Ojos", precio: 3200, stock: 10, img: "img/sombra.jpg" },
-      { id: "P004", nombre: "Rubor en Crema", categoria: "Rostro", precio: 1900, stock: 10, img: "img/rubor.jpg" },
-      { id: "P005", nombre: "Iluminador Glow", categoria: "Rostro", precio: 2100, stock: 10, img: "img/iluminador.jpg" },
-      { id: "P006", nombre: "Perfume Floral 50ml", categoria: "Fragancia", precio: 5600, stock: 10, img: "img/perfume.jpg" },
-      { id: "P007", nombre: "Crema Hidratante", categoria: "Piel", precio: 2400, stock: 10, img: "img/cremus.jpg" },
-      { id: "P008", nombre: "Gloss Transparente", categoria: "Labios", precio: 1200, stock: 10, img: "img/gloss.jpg" },
-      { id: "P009", nombre: "Bruma", categoria: "Cabello", precio: 1800, stock: 10, img: "img/bruma.jpg" },
-      { id: "P010", nombre: "Brochas", categoria: "Ojos", precio: 2500, stock: 10, img: "img/brochus.jpg" },
-      { id: "P011", nombre: "Mantequilla Hidratante", categoria: "Rostro", precio: 3100, stock: 10, img: "img/mantequilla.jpg" }
-    ];
+  <section id="qr" style="text-align:center; padding:40px; background-color:#111; border-top:2px solid #1512ee;">
+    <h2>🔗 Escaneá el código QR para visitar la página</h2>
+    <img 
+      src="img/codigopag.jpg"
+      alt="Código QR de la página"
+      width="200"
+      height="200"
+      style="border:4px solid #ff66b2; border-radius:10px; box-shadow:0 0 15px rgba(255,102,178,0.4); margin-top:15px;"
+    >
+  </section>
 
-    const tbody = document.querySelector("#tablaProductos tbody");
-    const carritoDiv = document.getElementById("carrito");
-    const facturaDiv = document.getElementById("factura");
-    let carrito = [];
+  <footer>
+    © 2025 Kylie Cosmetics — Página creada con HTML5 y CSS3
+  </footer>
 
-    function mostrarProductos() {
-      tbody.innerHTML = "";
-      for (let p of productos) {
-        const fila = document.createElement("tr");
-        fila.innerHTML = `
-          <td><img src="${p.img}" alt="${p.nombre}" class="producto-img"></td>
-          <td>${p.nombre}</td>
-          <td>${p.categoria}</td>
-          <td>$${p.precio}</td>
-          <td id="stock-${p.id}">${p.stock}</td>
-          <td><button class="btn" onclick="agregarCarrito('${p.id}')">Añadir</button></td>
-        `;
-        tbody.appendChild(fila);
-      }
-    }
+<audio id="musicaFondo" loop>
+  <source src="img/musica.mp3.mp3" type="audio/mpeg">
+</audio>
 
-    function agregarCarrito(id) {
-      const producto = productos.find(p => p.id === id);
-      if (producto && producto.stock > 0) {
-        producto.stock--;
-        const existe = carrito.find(item => item.id === id);
-        if (existe) existe.cantidad++;
-        else carrito.push({ ...producto, cantidad: 1 });
-      }
-      mostrarProductos();
-      mostrarCarrito();
-    }
+<button id="btnMusica" onclick="toggleMusica()">🎵 Música</button>
+</button>
 
-    function mostrarCarrito() {
-      carritoDiv.innerHTML = "";
-      if (carrito.length === 0) {
-        carritoDiv.innerHTML = "<p>El carrito está vacío.</p>";
-        return;
-      }
 
-      let tabla = "<table><tr><th>Producto</th><th>Cant.</th><th>Subtotal</th></tr>";
-      let total = 0;
-      for (let item of carrito) {
-        const subtotal = item.precio * item.cantidad;
-        total += subtotal;
-        tabla += `<tr><td>${item.nombre}</td><td>${item.cantidad}</td><td>$${subtotal}</td></tr>`;
-      }
-      tabla += "</table>";
-      tabla += `<p class='total'>Total: $${total}</p>`;
-      carritoDiv.innerHTML = tabla;
-    }
+<script>
+function toggleMusica() {
+  const musica = document.getElementById("musicaFondo");
+  const boton = document.getElementById("btnMusica");
 
-    function generarFactura() {
-      if (carrito.length === 0) {
-        alert("Agregá productos al carrito primero 💋");
-        return;
-      }
+  if (musica.paused) {
+    musica.play();
+    boton.textContent = "⏸️ Pausar música";
+  } else {
+    musica.pause();
+    boton.textContent = "▶️ Reproducir música";
+  }
+}
+</script>
 
-      const nombre = document.getElementById("nombre").value;
-      const dni = document.getElementById("dni").value;
-      const pago = document.getElementById("pago").value;
 
-      if (!nombre || !dni || !pago) {
-        alert("Completá todos los datos del cliente, amor 💗");
-        return;
-      }
-
-      let detalle = "<table><tr><th>Producto</th><th>Cant.</th><th>Subtotal</th></tr>";
-      let total = 0;
-      for (let item of carrito) {
-        const subtotal = item.precio * item.cantidad;
-        total += subtotal;
-        detalle += `<tr><td>${item.nombre}</td><td>${item.cantidad}</td><td>$${subtotal}</td></tr>`;
-      }
-      detalle += "</table>";
-
-      facturaDiv.innerHTML = `
-        <h3 style="color:var(--rosa)">Factura Generada</h3>
-        <p><b>Cliente:</b> ${nombre}</p>
-        <p><b>DNI:</b> ${dni}</p>
-        <p><b>Pago:</b> ${pago}</p>
-        ${detalle}
-        <p class="total">TOTAL FINAL: $${total}</p>
-      `;
-
-      carrito = [];
-      mostrarCarrito();
-    }
-
-    mostrarProductos();
-  </script>
 </body>
 </html>
